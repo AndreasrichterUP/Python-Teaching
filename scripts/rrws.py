@@ -4,9 +4,13 @@ class Point:
     def __init__(self, No,Xw,Yw,Zw,xI,yI):
         self.No,self.Xw,self.Yw, self.Zw, self.xI, self.yI = No,Xw,Yw,Zw,xI, yI
 
+        
     def add(self, other):
-        return Point(self.No +other.No ,self.Xw + other.Xw,self.Yw + other.Yw,self.Zw + other.Zw,self.xI + other.xI, self.yI + other.yI)
+        return Point(self.No,self.Xw + other.Xw,self.Yw + other.Yw,self.Zw + other.Zw,self.xI + other.xI, self.yI + other.yI)
 
+    def subtr(self, other):
+        return Point(self.No,self.Xw - other.Xw,self.Yw - other.Yw,self.Zw - other.Zw,self.xI, self.yI)
+    
     def println(self):
         print("( {}, {},{}, {}, {}, {})".format(self.No ,self.Xw, self.Yw, self.Zw, self.xI, self.yI))
 
