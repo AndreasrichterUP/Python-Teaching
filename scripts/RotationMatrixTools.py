@@ -15,9 +15,15 @@ def Rypr(y, p, r):
     return Ry*Rp*Rr
 
 def RyprG(y, p, r):
-    
+    #Kappa,Phi,Omega
     # Rotation Matrix for y = yaw (Z-Axis) p = pitch (Y-Axis) and r = roll (X-Axis)
     # from Gon to Radians
+    
+    #Omega – Rotation about the X axis
+    #Phi – Rotation about the Y axis
+    #Kappa – Rotation about the Z axis
+
+    #
     y = y*np.pi/200.0
     p = p*np.pi/200.0
     r = r*np.pi/200.0
