@@ -71,12 +71,12 @@ def calcDifferentials(PointMatIn,R):
    # kappaEO=PointMatIn[5,6]
 
     print('calc A-Matrix x-equations')
-    a= math.sin(PointMatIn[5,6]*np.pi/200.0)
-    b= math.cos(PointMatIn[5,5]*np.pi/200.0)
-    c= math.cos(PointMatIn[5,4]*np.pi/200.0)
-    d= math.sin(PointMatIn[5,4]*np.pi/200.0)
-    e= math.cos(PointMatIn[5,6]*np.pi/200.0)
-    f= math.sin(PointMatIn[5,5]*np.pi/200.0)
+    a= math.sin(PointMatIn[5,6])
+    b= math.cos(PointMatIn[5,5])
+    c= math.cos(PointMatIn[5,4])
+    d= math.sin(PointMatIn[5,4])
+    e= math.cos(PointMatIn[5,6])
+    f= math.sin(PointMatIn[5,5])
 
     rho2=np.dot(PointMatIn[1,1:4],PointMatIn[1,1:4])
 

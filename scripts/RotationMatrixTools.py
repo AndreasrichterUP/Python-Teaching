@@ -24,9 +24,9 @@ def RyprG(y, p, r):
     #Kappa – Rotation about the Z axis
 
     #
-    y = y*np.pi/200.0
-    p = p*np.pi/200.0
-    r = r*np.pi/200.0
+    #y = y*np.pi/200.0
+    #p = p*np.pi/200.0
+    #r = r*np.pi/200.0
  
     Rr = np.matrix([[1.0, 0.0, 0.0],[0.0, np.cos(r), -np.sin(r)],[0.0, np.sin(r), np.cos(r)]])
     Rp = np.matrix([[np.cos(p), 0.0, np.sin(p)],[0.0, 1.0, 0.0],[-np.sin(p), 0.0, np.cos(p)]])
