@@ -1,0 +1,92 @@
+<PAMDataset>
+  <Metadata>
+    <MDI key="DataType">Thematic</MDI>
+  </Metadata>
+  <Metadata domain="Esri">
+    <MDI key="PyramidResamplingType">NEAREST</MDI>
+  </Metadata>
+  <PAMRasterBand band="1">
+    <Histograms>
+      <HistItem>
+        <HistMin>-0,5</HistMin>
+        <HistMax>11,5</HistMax>
+        <BucketCount>12</BucketCount>
+        <IncludeOutOfRange>1</IncludeOutOfRange>
+        <Approximate>0</Approximate>
+        <HistCounts>0|404180|140367|0|1860|8769|0|3000|0|15481|0|565</HistCounts>
+      </HistItem>
+    </Histograms>
+    <GDALRasterAttributeTable>
+      <FieldDefn index="0">
+        <Name>OID</Name>
+        <Type>0</Type>
+        <Usage>0</Usage>
+      </FieldDefn>
+      <FieldDefn index="1">
+        <Name>Value</Name>
+        <Type>0</Type>
+        <Usage>0</Usage>
+      </FieldDefn>
+      <FieldDefn index="2">
+        <Name>Count</Name>
+        <Type>1</Type>
+        <Usage>0</Usage>
+      </FieldDefn>
+      <FieldDefn index="3">
+        <Name>CLASS1</Name>
+        <Type>2</Type>
+        <Usage>0</Usage>
+      </FieldDefn>
+      <Row index="0">
+        <F>1</F>
+        <F>1</F>
+        <F>456715</F>
+        <F>4B</F>
+      </Row>
+      <Row index="1">
+        <F>2</F>
+        <F>2</F>
+        <F>158628</F>
+        <F>7</F>
+      </Row>
+      <Row index="2">
+        <F>4</F>
+        <F>4</F>
+        <F>2092</F>
+        <F>3C</F>
+      </Row>
+      <Row index="3">
+        <F>5</F>
+        <F>5</F>
+        <F>9934</F>
+        <F>4A</F>
+      </Row>
+      <Row index="4">
+        <F>7</F>
+        <F>7</F>
+        <F>3384</F>
+        <F>2A</F>
+      </Row>
+      <Row index="5">
+        <F>9</F>
+        <F>9</F>
+        <F>17491</F>
+        <F>3B</F>
+      </Row>
+      <Row index="6">
+        <F>11</F>
+        <F>11</F>
+        <F>626</F>
+        <F>2B</F>
+      </Row>
+    </GDALRasterAttributeTable>
+    <Metadata>
+      <MDI key="RepresentationType">THEMATIC</MDI>
+      <MDI key="STATISTICS_MINIMUM">1</MDI>
+      <MDI key="STATISTICS_MAXIMUM">11</MDI>
+      <MDI key="STATISTICS_MEAN">1,5721149659888</MDI>
+      <MDI key="STATISTICS_STDDEV">1,484094802949</MDI>
+      <MDI key="STATISTICS_COVARIANCES">2,20253738414026</MDI>
+    </Metadata>
+  </PAMRasterBand>
+</PAMDataset>
