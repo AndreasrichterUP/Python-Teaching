@@ -1,7 +1,10 @@
 import numpy as np
 
 def Rypr(y, p, r):
-    
+    #Omega – Rotation around the X-axis .... (r)oll
+    #Phi – Rotation around the Y-axis....... (p)itch
+    #Kappa – Rotation around the Z-axis..... (y)aw
+
     # Rotation Matrix for y = yaw (Z-Axis) p = pitch (Y-Axis) and r = roll (X-Axis)
     # from Degree to Radians
     y = y*np.pi/180.0
@@ -11,7 +14,8 @@ def Rypr(y, p, r):
     Rr = np.matrix([[1.0, 0.0, 0.0],[0.0, np.cos(r), -np.sin(r)],[0.0, np.sin(r), np.cos(r)]])
     Rp = np.matrix([[np.cos(p), 0.0, np.sin(p)],[0.0, 1.0, 0.0],[-np.sin(p), 0.0, np.cos(p)]])
     Ry = np.matrix([[np.cos(y), -np.sin(y), 0.0],[np.sin(y), np.cos(y), 0.0],[0.0, 0.0, 1.0]])
- 
+    
+    #return np.dot(np.dot(Ry,Rp),Rr)
     return Ry*Rp*Rr
 
 def RyprG(y, p, r):
@@ -19,11 +23,11 @@ def RyprG(y, p, r):
     # Rotation Matrix for y = yaw (Z-Axis) p = pitch (Y-Axis) and r = roll (X-Axis)
     # from Gon to Radians
     
-    #Omega – Rotation about the X axis
-    #Phi – Rotation about the Y axis
-    #Kappa – Rotation about the Z axis
+    #Omega – Rotation around the X axis
+    #Phi – Rotation around the Y axis
+    #Kappa – Rotation around the Z axis
 
-    #
+    # from Gon to Radiants
     #y = y*np.pi/200.0
     #p = p*np.pi/200.0
     #r = r*np.pi/200.0
@@ -31,7 +35,8 @@ def RyprG(y, p, r):
     Rr = np.matrix([[1.0, 0.0, 0.0],[0.0, np.cos(r), -np.sin(r)],[0.0, np.sin(r), np.cos(r)]])
     Rp = np.matrix([[np.cos(p), 0.0, np.sin(p)],[0.0, 1.0, 0.0],[-np.sin(p), 0.0, np.cos(p)]])
     Ry = np.matrix([[np.cos(y), -np.sin(y), 0.0],[np.sin(y), np.cos(y), 0.0],[0.0, 0.0, 1.0]])
- 
+
+    #return np.dot(np.dot(Ry,Rp),Rr)
     return Ry*Rp*Rr
 
 

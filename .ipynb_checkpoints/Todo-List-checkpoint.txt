@@ -1,0 +1,19 @@
+Notebook Nr     Todo
+-----------     -------
+01              CMD Links und Hinweise
+                Bit and Byte Intro frueher einfuegen
+                GigaByte vs GibiByte deutlicher hervorheben
+                Mathe teil mehr kommentieren
+
+
+01a             Inhaltsverzeichnis
+                Beispiele ueberpruefen
+
+
+
+07              Eigenvalues Text ueberarbeiten
+                Reihenfolge
+
+08a              Doku der Script/Funktionen
+                check the used equations of stero-view, lger, A-Mat ...
+
