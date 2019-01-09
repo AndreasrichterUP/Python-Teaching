@@ -4,6 +4,8 @@ Notebook Nr     Todo
                 Bit and Byte Intro frueher einfuegen
                 GigaByte vs GibiByte deutlicher hervorheben
                 Mathe teil mehr kommentieren
+                numpy zeros + ones Matrizen erklaeren
+                wie erstellt man eine 3x3 Matrix von (1,2,3,4,5,6,7,8,9)
 
 
 01a             Inhaltsverzeichnis
@@ -14,6 +16,8 @@ Notebook Nr     Todo
 07              Eigenvalues Text ueberarbeiten
                 Reihenfolge
 
-08a              Doku der Script/Funktionen
+08a             Doku der Script/Funktionen
                 check the used equations of stero-view, lger, A-Mat ...
+                How is python calculating np.dot(A,B) equal to A*B fuer die Rotations matrix kommt das gleiche raus
+                ansonsten aber nicht! vgl. elementweise und matrix Mult
 

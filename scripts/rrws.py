@@ -68,6 +68,13 @@ def calcDifferentials(PointMatIn,R):
     #V....index:7
     #W....index:8
 
+    # U[i]= r11*dX[i]+r21*dY[i]+r31*dZ[i];
+	# V[i]= r12*dX[i]+r22*dY[i]+r32*dZ[i];
+	# W[i]= r13*dX[i]+r23*dY[i]+r33*dZ[i];
+
+    # R.T* [dX dY dZ].T
+    
+    
     # The Values for UVW are dependent on the Rotation Matrix and the Point Differences
     PointMatIn[1,6:9]=np.dot(R.T,PointMatIn[1,1:4])
     PointMatIn[2,6:9]=np.dot(R.T,PointMatIn[2,1:4])
@@ -82,11 +89,20 @@ def calcDifferentials(PointMatIn,R):
 
     print('calc lger')
     
-    # The following equations will calculate the observations for x' and y' depending on the values of U V W
+    # The following equations calculate values of the observations for x' and y' depending on the values of U V W
     # for example PointMatIn[1,6] = U  PointMatIn[1,7]= V  and  PointMatIn[1,8] = W
-    # So the matrix structure is extended by the cols [1,9] and [1,10]
-    # check the following equations
+    # based on the given geometry, U V and W itself depend on the GCPs and their spatial relationships   
     
+    # PointMatIn[0,0] is the camera constant c of the interior orientation
+    # PointMatIn[0,1] is the projection center x0IO of the interior orientation
+    # PointMatIn[0,2] is the projection center y0IO of the interior orientation
+    
+    # x0IO - c*(U/W)
+    # y0IO - c*(V/W)
+    
+    # The matrix structure is extended by the cols [1,9] and [1,10]
+    # check the following equations compare "Krauss, Photogrammetie Vol 1"
+  
     PointMatIn[1,9:11]=[ PointMatIn[0,1] - PointMatIn[0,0]*PointMatIn[1,6]/PointMatIn[1,8], PointMatIn[0,2] -       PointMatIn[0,0]*PointMatIn[1,7]/PointMatIn[1,8] ]
 
     PointMatIn[2,9:11]=[ PointMatIn[0,1] - PointMatIn[0,0]*PointMatIn[2,6]/PointMatIn[2,8], PointMatIn[0,2] - PointMatIn[0,0]*PointMatIn[2,7]/PointMatIn[2,8] ]
@@ -103,15 +119,16 @@ def calcDifferentials(PointMatIn,R):
     
     # The so called A-Matrix stores the differentials according to every variable in the collinearity equations
     
-    a= math.sin(PointMatIn[5,6])
-    b= math.cos(PointMatIn[5,5])
-    c= math.cos(PointMatIn[5,4])
-    d= math.sin(PointMatIn[5,4])
-    e= math.cos(PointMatIn[5,6])
-    f= math.sin(PointMatIn[5,5])
+    a= math.sin(PointMatIn[5,6])   # sin(kappa)
+    b= math.cos(PointMatIn[5,5])   # cos(phi) 
+    c= math.cos(PointMatIn[5,4])   # cos(omega)
+    d= math.sin(PointMatIn[5,4])   # sin(omega)
+    e= math.cos(PointMatIn[5,6])   # cos(kappa)
+    f= math.sin(PointMatIn[5,5])   # sin(phi)
 
-    rho2=np.dot(PointMatIn[1,1:4],PointMatIn[1,1:4])
-
+    #rho2=np.dot(PointMatIn[1,1:4],PointMatIn[1,1:4])
+    # X*X + Y*Y + Z*Z ???
+    
     #dx/d_X0  dx/d_Y0  dx/d_Z0
     PointMatIn[1,11:14]=[ - PointMatIn[0,0]/(PointMatIn[1,8]**2)*(R[0,2]*PointMatIn[1,6] - R[0,0]*PointMatIn[1,8]),
                       - PointMatIn[0,0]/(PointMatIn[1,8]**2)*(R[1,2]*PointMatIn[1,6] - R[1,0]*PointMatIn[1,8]), 
@@ -130,18 +147,22 @@ def calcDifferentials(PointMatIn,R):
                       - PointMatIn[0,0]/(PointMatIn[4,8]**2)*(R[2,2]*PointMatIn[4,6] - R[2,0]*PointMatIn[4,8]) ]
 
     #dx/d_omega  dx/d_phi  dx/d_kappa
+    rho2=np.dot(PointMatIn[1,1:4],PointMatIn[1,1:4])
     PointMatIn[1,14:17]=[ - PointMatIn[0,0]/(PointMatIn[1,8]**2)*(PointMatIn[1,1]*PointMatIn[1,7] + rho2*a*b  ),
                       - (PointMatIn[0,0]*PointMatIn[1,7])/(PointMatIn[1,8]**2)*(c*PointMatIn[1,2]+d*PointMatIn[1,3]) +      rho2*e*PointMatIn[0,0]/(PointMatIn[1,8]**2),
                       - (PointMatIn[0,0]*PointMatIn[1,7])/(PointMatIn[1,8]**2)*(f*PointMatIn[1,1] - d*b*PointMatIn[1,2] +   c*b*PointMatIn[1,3] )  ]
     
+    rho2=np.dot(PointMatIn[2,1:4],PointMatIn[2,1:4])
     PointMatIn[2,14:17]=[ - PointMatIn[0,0]/(PointMatIn[2,8]**2)*(PointMatIn[2,1]*PointMatIn[2,7] + rho2*a*b  ),
                       - (PointMatIn[0,0]*PointMatIn[2,7])/(PointMatIn[2,8]**2)*(c*PointMatIn[2,2]+d*PointMatIn[2,3]) + rho2*e*PointMatIn[0,0]/(PointMatIn[2,8]**2),
                       - (PointMatIn[0,0]*PointMatIn[2,7])/(PointMatIn[2,8]**2)*(f*PointMatIn[2,1] - d*b*PointMatIn[2,2] + c*b*PointMatIn[2,3] )  ]
 
+    rho2=np.dot(PointMatIn[3,1:4],PointMatIn[3,1:4])
     PointMatIn[3,14:17]=[ - PointMatIn[0,0]/(PointMatIn[3,8]**2)*(PointMatIn[3,1]*PointMatIn[3,7] + rho2*a*b  ),
                       - (PointMatIn[0,0]*PointMatIn[3,7])/(PointMatIn[3,8]**2)*(c*PointMatIn[3,2]+d*PointMatIn[3,3]) + rho2*e*PointMatIn[0,0]/(PointMatIn[3,8]**2),
                       - (PointMatIn[0,0]*PointMatIn[3,7])/(PointMatIn[3,8]**2)*(f*PointMatIn[3,1] - d*b*PointMatIn[3,2] + c*b*PointMatIn[3,3] )  ]
 
+    rho2=np.dot(PointMatIn[4,1:4],PointMatIn[4,1:4])
     PointMatIn[4,14:17]=[ - PointMatIn[0,0]/(PointMatIn[4,8]**2)*(PointMatIn[4,1]*PointMatIn[4,7] + rho2*a*b  ),
                       - (PointMatIn[0,0]*PointMatIn[4,7])/(PointMatIn[4,8]**2)*(c*PointMatIn[4,2]+d*PointMatIn[4,3]) + rho2*e*PointMatIn[0,0]/(PointMatIn[4,8]**2),
                       - (PointMatIn[0,0]*PointMatIn[4,7])/(PointMatIn[4,8]**2)*(f*PointMatIn[4,1] - d*b*PointMatIn[4,2] + c*b*PointMatIn[4,3] )  ]
