@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 def Rypr(y, p, r):
     #Omega – Rotation around the X-axis .... (r)oll
@@ -44,20 +45,20 @@ def RyprG(y, p, r):
     phiEO  =p
     omegaEO=r
     
-    r11= math.cos(phiEO)*math.cos(kappaEO);
-    r12=-math.cos(phiEO)*math.sin(kappaEO);
-    r13= math.sin(phiEO);
+    #r11= math.cos(phiEO)*math.cos(kappaEO);
+    #r12=-math.cos(phiEO)*math.sin(kappaEO);
+    #r13= math.sin(phiEO);
 
-    r21= math.cos(omegaEO)*math.sin(kappaEO)+math.sin(omegaEO)*math.sin(phiEO)*math.cos(kappaEO);
-    r22= math.cos(omegaEO)*math.cos(kappaEO)-math.sin(omegaEO)*math.sin(phiEO)*math.sin(kappaEO);
-    r23=-math.sin(omegaEO)*math.cos(phiEO);
+    #r21= math.cos(omegaEO)*math.sin(kappaEO)+math.sin(omegaEO)*math.sin(phiEO)*math.cos(kappaEO);
+    #r22= math.cos(omegaEO)*math.cos(kappaEO)-math.sin(omegaEO)*math.sin(phiEO)*math.sin(kappaEO);
+    #r23=-math.sin(omegaEO)*math.cos(phiEO);
 
-    r31= math.sin(omegaEO)*math.sin(kappaEO)-math.cos(omegaEO)*math.sin(phiEO)*math.cos(kappaEO);
-    r32= math.sin(omegaEO)*math.cos(kappaEO)+math.cos(omegaEO)*math.sin(phiEO)*math.sin(kappaEO);
-    r33= math.cos(omegaEO)*math.cos(phiEO);
+    #r31= math.sin(omegaEO)*math.sin(kappaEO)-math.cos(omegaEO)*math.sin(phiEO)*math.cos(kappaEO);
+    #r32= math.sin(omegaEO)*math.cos(kappaEO)+math.cos(omegaEO)*math.sin(phiEO)*math.sin(kappaEO);
+    #r33= math.cos(omegaEO)*math.cos(phiEO);
     
     R1=np.dot(np.dot(Ry,Rp),Rr)
-    R2=np.array([[r11,r12,r13],[r21,r22,r23],[r31,r32,r33]])
+    #R2=np.array([[r11,r12,r13],[r21,r22,r23],[r31,r32,r33]])
 
     return R1
     #return Rr,Rp,Ry

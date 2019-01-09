@@ -72,6 +72,7 @@ def calcDifferentials(PointMatIn,R):
 	# V[i]= r12*dX[i]+r22*dY[i]+r32*dZ[i];
 	# W[i]= r13*dX[i]+r23*dY[i]+r33*dZ[i];
 
+    # R.T* [dX dY dZ].T
     
     
     # The Values for UVW are dependent on the Rotation Matrix and the Point Differences
@@ -188,18 +189,21 @@ def calcDifferentials(PointMatIn,R):
 
 
     #dy/d_omega  dy/d_phi  dy/d_kappa
+    rho2=np.dot(PointMatIn[1,1:4],PointMatIn[1,1:4])   
     PointMatIn[1,20:23]=[  PointMatIn[0,0]/(PointMatIn[1,8]**2)*(PointMatIn[1,1]*PointMatIn[1,6] + rho2*e*b  ),
                        (PointMatIn[0,0]*PointMatIn[1,6])/(PointMatIn[1,8]**2)*(c*PointMatIn[1,2]+d*PointMatIn[1,3]) - rho2*a*PointMatIn[0,0]/(PointMatIn[1,8]**2),
                        (PointMatIn[0,0]*PointMatIn[1,6])/(PointMatIn[1,8]**2)*(f*PointMatIn[1,1] - d*b*PointMatIn[1,2] + c*b*PointMatIn[1,3] )  ]
-    
+    rho2=np.dot(PointMatIn[2,1:4],PointMatIn[2,1:4]) 
     PointMatIn[2,20:23]=[  PointMatIn[0,0]/(PointMatIn[2,8]**2)*(PointMatIn[2,1]*PointMatIn[2,6] + rho2*e*b  ),
                        (PointMatIn[0,0]*PointMatIn[2,6])/(PointMatIn[2,8]**2)*(c*PointMatIn[2,2]+d*PointMatIn[2,3]) - rho2*a*PointMatIn[0,0]/(PointMatIn[2,8]**2),
                        (PointMatIn[0,0]*PointMatIn[2,6])/(PointMatIn[2,8]**2)*(f*PointMatIn[2,1] - d*b*PointMatIn[2,2] + c*b*PointMatIn[2,3] )  ]
-
+    
+    rho2=np.dot(PointMatIn[3,1:4],PointMatIn[3,1:4]) 
     PointMatIn[3,20:23]=[  PointMatIn[0,0]/(PointMatIn[3,8]**2)*(PointMatIn[3,1]*PointMatIn[3,6] + rho2*e*b  ),
                        (PointMatIn[0,0]*PointMatIn[3,6])/(PointMatIn[3,8]**2)*(c*PointMatIn[3,2]+d*PointMatIn[3,3]) - rho2*a*PointMatIn[0,0]/(PointMatIn[3,8]**2),
                        (PointMatIn[0,0]*PointMatIn[3,6])/(PointMatIn[3,8]**2)*(f*PointMatIn[3,1] - d*b*PointMatIn[3,2] + c*b*PointMatIn[3,3] )  ]
-
+    
+    rho2=np.dot(PointMatIn[4,1:4],PointMatIn[4,1:4]) 
     PointMatIn[4,20:23]=[  PointMatIn[0,0]/(PointMatIn[4,8]**2)*(PointMatIn[4,1]*PointMatIn[4,6] + rho2*e*b  ),
                        (PointMatIn[0,0]*PointMatIn[4,6])/(PointMatIn[4,8]**2)*(c*PointMatIn[4,2]+d*PointMatIn[4,3]) - rho2*a*PointMatIn[0,0]/(PointMatIn[4,8]**2),
                        (PointMatIn[0,0]*PointMatIn[4,6])/(PointMatIn[4,8]**2)*(f*PointMatIn[4,1] - d*b*PointMatIn[4,2] + c*b*PointMatIn[4,3] )  ]
