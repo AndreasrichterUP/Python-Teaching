@@ -170,33 +170,36 @@ def calcDifferentials(PointMatIn,R):
 
     print('calc A-Matrix y-equations')
     #dy/d_X0  dy/d_Y0  dy/d_Z0
-    PointMatIn[1,17:20]=[ - PointMatIn[0,0]/(PointMatIn[1,8]**2)*(R[0,2]*PointMatIn[1,7] - R[0,0]*PointMatIn[1,8]),
-                      - PointMatIn[0,0]/(PointMatIn[1,8]**2)*(R[1,2]*PointMatIn[1,7] - R[1,0]*PointMatIn[1,8]), 
-                      - PointMatIn[0,0]/(PointMatIn[1,8]**2)*(R[2,2]*PointMatIn[1,7] - R[2,0]*PointMatIn[1,8]) ]
+    PointMatIn[1,17:20]=[ - PointMatIn[0,0]/(PointMatIn[1,8]**2)*(R[0,2]*PointMatIn[1,7] - R[0,1]*PointMatIn[1,8]),
+                          - PointMatIn[0,0]/(PointMatIn[1,8]**2)*(R[1,2]*PointMatIn[1,7] - R[1,1]*PointMatIn[1,8]), 
+                          - PointMatIn[0,0]/(PointMatIn[1,8]**2)*(R[2,2]*PointMatIn[1,7] - R[2,1]*PointMatIn[1,8]) ]
 
-    PointMatIn[2,17:20]=[ - PointMatIn[0,0]/(PointMatIn[2,8]**2)*(R[0,2]*PointMatIn[2,7] - R[0,0]*PointMatIn[2,8]),
-                      - PointMatIn[0,0]/(PointMatIn[2,8]**2)*(R[1,2]*PointMatIn[2,7] - R[1,0]*PointMatIn[2,8]), 
-                      - PointMatIn[0,0]/(PointMatIn[2,8]**2)*(R[2,2]*PointMatIn[2,7] - R[2,0]*PointMatIn[2,8]) ]
+    PointMatIn[2,17:20]=[ - PointMatIn[0,0]/(PointMatIn[2,8]**2)*(R[0,2]*PointMatIn[2,7] - R[0,1]*PointMatIn[2,8]),
+                          - PointMatIn[0,0]/(PointMatIn[2,8]**2)*(R[1,2]*PointMatIn[2,7] - R[1,1]*PointMatIn[2,8]), 
+                          - PointMatIn[0,0]/(PointMatIn[2,8]**2)*(R[2,2]*PointMatIn[2,7] - R[2,1]*PointMatIn[2,8]) ]
 
-    PointMatIn[3,17:20]=[ - PointMatIn[0,0]/(PointMatIn[3,8]**2)*(R[0,2]*PointMatIn[3,7] - R[0,0]*PointMatIn[3,8]),
-                      - PointMatIn[0,0]/(PointMatIn[3,8]**2)*(R[1,2]*PointMatIn[3,7] - R[1,0]*PointMatIn[3,8]), 
-                      - PointMatIn[0,0]/(PointMatIn[3,8]**2)*(R[2,2]*PointMatIn[3,7] - R[2,0]*PointMatIn[3,8]) ]
+    PointMatIn[3,17:20]=[ - PointMatIn[0,0]/(PointMatIn[3,8]**2)*(R[0,2]*PointMatIn[3,7] - R[0,1]*PointMatIn[3,8]),
+                          - PointMatIn[0,0]/(PointMatIn[3,8]**2)*(R[1,2]*PointMatIn[3,7] - R[1,1]*PointMatIn[3,8]), 
+                          - PointMatIn[0,0]/(PointMatIn[3,8]**2)*(R[2,2]*PointMatIn[3,7] - R[2,1]*PointMatIn[3,8]) ]
 
-    PointMatIn[4,17:20]=[ - PointMatIn[0,0]/(PointMatIn[4,8]**2)*(R[0,2]*PointMatIn[4,7] - R[0,0]*PointMatIn[4,8]),
-                      - PointMatIn[0,0]/(PointMatIn[4,8]**2)*(R[1,2]*PointMatIn[4,7] - R[1,0]*PointMatIn[4,8]), 
-                      - PointMatIn[0,0]/(PointMatIn[4,8]**2)*(R[2,2]*PointMatIn[4,7] - R[2,0]*PointMatIn[4,8]) ]
+    PointMatIn[4,17:20]=[ - PointMatIn[0,0]/(PointMatIn[4,8]**2)*(R[0,2]*PointMatIn[4,7] - R[0,1]*PointMatIn[4,8]),
+                          - PointMatIn[0,0]/(PointMatIn[4,8]**2)*(R[1,2]*PointMatIn[4,7] - R[1,1]*PointMatIn[4,8]), 
+                          - PointMatIn[0,0]/(PointMatIn[4,8]**2)*(R[2,2]*PointMatIn[4,7] - R[2,1]*PointMatIn[4,8]) ]
 
 
 
     #dy/d_omega  dy/d_phi  dy/d_kappa
-    rho2=np.dot(PointMatIn[1,1:4],PointMatIn[1,1:4])   
+    rho2=np.dot(PointMatIn[1,1:4],PointMatIn[1,1:4])       
     PointMatIn[1,20:23]=[  PointMatIn[0,0]/(PointMatIn[1,8]**2)*(PointMatIn[1,1]*PointMatIn[1,6] + rho2*e*b  ),
-                       (PointMatIn[0,0]*PointMatIn[1,6])/(PointMatIn[1,8]**2)*(c*PointMatIn[1,2]+d*PointMatIn[1,3]) - rho2*a*PointMatIn[0,0]/(PointMatIn[1,8]**2),
+                         (PointMatIn[0,0]*PointMatIn[1,6])/(PointMatIn[1,8]**2)*(c*PointMatIn[1,2]+d*PointMatIn[1,3]) - rho2*a*PointMatIn[0,0]/(PointMatIn[1,8]**2),
                        (PointMatIn[0,0]*PointMatIn[1,6])/(PointMatIn[1,8]**2)*(f*PointMatIn[1,1] - d*b*PointMatIn[1,2] + c*b*PointMatIn[1,3] )  ]
-    rho2=np.dot(PointMatIn[2,1:4],PointMatIn[2,1:4]) 
+    
+    
+    rho2=np.dot(PointMatIn[2,1:4],PointMatIn[2,1:4])
     PointMatIn[2,20:23]=[  PointMatIn[0,0]/(PointMatIn[2,8]**2)*(PointMatIn[2,1]*PointMatIn[2,6] + rho2*e*b  ),
                        (PointMatIn[0,0]*PointMatIn[2,6])/(PointMatIn[2,8]**2)*(c*PointMatIn[2,2]+d*PointMatIn[2,3]) - rho2*a*PointMatIn[0,0]/(PointMatIn[2,8]**2),
                        (PointMatIn[0,0]*PointMatIn[2,6])/(PointMatIn[2,8]**2)*(f*PointMatIn[2,1] - d*b*PointMatIn[2,2] + c*b*PointMatIn[2,3] )  ]
+    
     
     rho2=np.dot(PointMatIn[3,1:4],PointMatIn[3,1:4]) 
     PointMatIn[3,20:23]=[  PointMatIn[0,0]/(PointMatIn[3,8]**2)*(PointMatIn[3,1]*PointMatIn[3,6] + rho2*e*b  ),
