@@ -1,20 +1,63 @@
 Notebook Nr     Todo
 -----------     -------
-01              CMD Links und Hinweise
-                Bit and Byte Intro frueher einfuegen
-                GigaByte vs GibiByte deutlicher hervorheben
-                Mathe teil mehr kommentieren
-                numpy zeros + ones Matrizen erklaeren
-                wie erstellt man eine 3x3 Matrix von (1,2,3,4,5,6,7,8,9)
+00a             - aufraeumen und leer machen, raus aus dem Branch 
+                  Bsp. in IF Condition übernehmen und erklären
+                -  
+--------------------------------------------------------------------------------------
+01              - CC License einfügen....ok
+                - stimmen die Überschriften im Inhaltsverz mit den Kap. ueberein?
+                - Einleitung schreiben, Sinn und Zweck der Notebooks, L.Cuba Zitat erweitern ausformulieren
+                  Jupyter Lab/Notebook in gleicher Weise verwenden
+                -
+                - CMD Links und Hinweise, DOS und Unixoid Systeme unterscheiden
+                - Basic Library Import und 'Python modules closer' zusammenfassen...ok
+                - "The Zen of Python" als Überschrift einfügen....ok
+                - Pinting ist keine extra Überschrift
+                - Bits and Bytes Intro frueher einfuegen, Einleitender Satz Informationsgrundlage
+                   GigaByte vs GibiByte deutlicher hervorheben
+                - Mathe teil mehr kommentieren "math" statt "Math"
+                - numpy zeros + ones Matrizen erklaeren
+                   wie erstellt man eine 3x3 Matrix von (1,2,3,4,5,6,7,8,9)
+                - Funktions Teil einleiten und erklären, deutlich auf die Wichtigkeit   
+                    hinweise
+                - Preprocessing Teil ausformulieren, das was im 00a gemacht wurde
+--------------------------------------------------------------------------------------
+01a             - Inhaltsverzeichnis machen
+                - Tools hinzufügen und beschreiben............ o
+                - abwaegen wo das Thema inhaltlich besser passt
+                - Beispiele ueberpruefen
+--------------------------------------------------------------------------------------
+02              - Inhaltsverzeichnis umarbeiten....ok
+                - Image Plots hier herrausnehmen, wird bei NB 04 ja eh erklärt....ok
+                - was ist mit 3D plots...sie
+                - 
+--------------------------------------------------------------------------------------
+02a             - Raster and Histogram Plots hier raus und in 02b rein
+
+--------------------------------------------------------------------------------------
+02b             - Tuckey Box Plots bessere Beispiel
+                - Learning Curve erklären und RocAUC aus dem Paper übernehmen
+                
+                Namen von 02 02a und 02b abstimmen
+--------------------------------------------------------------------------------------
+03
+
+--------------------------------------------------------------------------------------
+03a
+
+--------------------------------------------------------------------------------------
+03b             - neu Estellen "Classification Test"
+
+--------------------------------------------------------------------------------------
 
 
-01a             Inhaltsverzeichnis
-                Beispiele ueberpruefen
 
+07              - Eigenvalues Text ueberarbeiten
+                  Reihenfolge
+--------------------------------------------------------------------------------------
+08              - 
 
-
-07              Eigenvalues Text ueberarbeiten
-                Reihenfolge
+--------------------------------------------------------------------------------------
 
 08a             Doku der Script/Funktionen
                 check the used equations of stero-view, lger, A-Mat ...
